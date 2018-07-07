@@ -1,10 +1,8 @@
-
+const IndexController = require('../controllers/index')()
 
 const routes = (server) => {
 
-    server.get(`/`, (req, res, next) => {
-        res.status(200).json({status: 'OK'})
-    })
+    server.get(`/`, IndexController.getFields.bind(IndexController))
 }
 
 module.exports = routes
