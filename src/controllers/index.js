@@ -1,9 +1,16 @@
-
+const IndexService = require('../services/index');
 
 function IndexController() {
 
-    this.getFields = (req, res, next) => {
-        res.status(200).json({status: 'Success'})
+    const indexService = new IndexService()
+
+    this.getFields = async (req, res, next) => {
+        try {
+            const fields = await indexService.getFields()
+            res.status(200).json({status: 'Success'})
+        } catch (err) {
+
+        }
     }
 }
 
