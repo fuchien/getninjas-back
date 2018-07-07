@@ -8,7 +8,7 @@ describe('Controllers: Index', () => {
         findAll: td.function(),
       };
 
-      const expectedResponse = fields
+      const expectedResponse = fields;
 
       td.when(Fields.findAll()).thenResolve(expectedResponse);
       const indexService = new IndexService();
@@ -16,5 +16,16 @@ describe('Controllers: Index', () => {
       indexService.getFields()
         .then(response => expect(response.data).to.be.eql(expectedResponse))
     });
+    it('should return a list of fields ERROR', () => {
+        const Fields = {
+            findAll: td.function(),
+        };
+  
+        td.when(Fields.findAll()).thenReject(undefined);
+        const indexService = new IndexService();
+  
+        indexService.getFields()
+          .catch(err => expect(err).to.be.undefined)
+      });
   });
 });
