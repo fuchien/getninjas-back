@@ -6,8 +6,8 @@ function IndexController() {
 
     this.getFields = async (req, res, next) => {
         try {
-            const fields = await indexService.getFields()
-            res.status(200).json({status: 'Success'})
+            const fields = await indexService.getFields();
+            res.status(200).json(fields);
         } catch (err) {
 
         }
