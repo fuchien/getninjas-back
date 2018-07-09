@@ -12,7 +12,7 @@ First, be sure to install dependencies:
 ---
     npm install
 
-Then start a dev server on localhost:3000
+Then start a dev server on `localhost:3000`
 
 ---
     npm start
